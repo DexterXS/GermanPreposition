@@ -10,8 +10,10 @@ class StyledButton:
         self.font_size = font_size
 
     def render(self):
-        button_clicked = st.sidebar.button(self.label, key=self.label.lower().replace(" ", "_"),
-                                           style=f"font-size: {self.font_size};")
+        button_clicked = st.sidebar.button(self.label, key=self.label.lower().replace(" ", "_"))
+        if button_clicked:
+            st.sidebar.markdown(f'<button style="font-size: {self.font_size};">{self.label}</button>',
+                                unsafe_allow_html=True)
         return button_clicked
 
 
