@@ -1,46 +1,88 @@
 import streamlit as st
-from tab1 import tab1_content
-from tab2 import tab2_content
-from tab3 import tab3_content
+import spacy
 
 
-class StyledButton:
-    def __init__(self, label):
-        self.label = label
+def annotate_german_words(text, nlp):
+    doc = nlp(text)
+    annotated_text = ""
 
-    def render(self):
-        key = self.label.lower().replace(" ", "_")
-        button_clicked = st.sidebar.button(self.label, key=key, use_container_width=True)
-        return button_clicked
+    for token in doc:
+        annotations = []
+
+        # Часть речи
+        annotations.append(f"POS: {token.pos_}")
+
+        if token.pos_ == "VERB":
+            color = "blue"
+            font_weight = "normal"
+        elif token.pos_ == "NOUN":
+            color = "green"
+            font_weight = "normal"
+        elif token.pos_ == "ADP":
+            color = "red"
+            font_weight = "normal"
+        elif token.pos_ == "PROPN":
+            color = "purple"
+            font_weight = "normal"
+        elif token.pos_ == "DET":
+            color = "orange"
+            font_weight = "normal"
+        elif token.pos_ == "PRON":
+            color = "brown"
+            font_weight = "normal"
+        elif token.pos_ == "AUX":
+            color = "teal"
+            font_weight = "normal"
+        else:
+            color = "white"
+            font_weight = "normal"
+
+        if token.lang_ == "de":
+            annotated_text += f'<span style="color:{color}; font-weight:{font_weight};" title="{", ".join(annotations)}">{token.text}</span> '
+        else:
+            annotated_text += token.text + " "
+
+    return annotated_text.strip()
 
 
-def create_buttons(labels):
-    for label in labels:
-        key = label.lower().replace(" ", "_")
-        if st.sidebar.button(label, key=key, use_container_width=True):
-            st.sidebar.write(f"Натиснута кнопка: {label}")
+def show_colored_legend():
+    legend = [
+        ("<span style='color: blue;'>VERB</span>: Глагол"),
+        ("<span style='color: green;'>NOUN</span>: Существительное"),
+        ("<span style='color: red;'>ADP</span>: Предлог"),
+        ("<span style='color: purple;'>PROPN</span>: Имя собственное"),
+        ("<span style='color: orange;'>DET</span>: Артикль или детерминатив"),
+        ("<span style='color: brown;'>PRON</span>: Местоимение"),
+        ("<span style='color: teal;'>AUX</span>: Вспомогательный глагол")
+    ]
+
+    st.markdown("## Легенда с цветами частей речи")
+    for item in legend:
+        st.markdown(item, unsafe_allow_html=True)
+
+
+def load_spacy_model():
+    return spacy.load("de_core_news_sm")
 
 
 def main():
-    st.set_page_config(layout="wide")
-    st.title("Many Tabs")
+    st.title("Немецкий текст")
 
-    tabs_and_buttons = [("Вкладка 1", tab1_content),
-                        ("Вкладка 2", tab2_content),
-                        ("Вкладка 3", tab3_content),
-                        ("Перша кнопка", None),
-                        ("Друга кнопка", None),
-                        ("Третя кнопка", None),
-                        ("Четверта кнопка", None)]
+    nlp = load_spacy_model()
 
-    for item_label, content_function in tabs_and_buttons:
-        if content_function:
-            button = StyledButton(item_label)
-            selected = button.render()
-            if selected:
-                content_function()
-        else:
-            create_buttons([item_label])
+    input_text = st.text_area("Введите текст:", value="", key="input_text")
+
+    if st.button("Подсветить немецкие слова"):
+        sentences = input_text.split(". ")
+        highlighted_text = ""
+
+        for sentence in sentences:
+            if sentence.strip():  # Пропустим пустые строки
+                highlighted_sentence = annotate_german_words(sentence, nlp)
+                highlighted_text += f"{highlighted_sentence.strip()}\n"
+
+        st.markdown(f"Подсвеченный текст:\n{highlighted_text}", unsafe_allow_html=True)
+        show_colored_legend()
 
 
 if __name__ == "__main__":
