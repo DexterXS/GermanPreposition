@@ -9,30 +9,38 @@ class StyledButton:
         self.label = label
 
     def render(self):
-        button_clicked = st.sidebar.button(self.label, key=self.label.lower().replace(" ", "_"),
-                                           use_container_width=True)
+        key = self.label.lower().replace(" ", "_")
+        button_clicked = st.sidebar.button(self.label, key=key, use_container_width=True)
         return button_clicked
+
+
+def create_buttons(labels):
+    for label in labels:
+        key = label.lower().replace(" ", "_")
+        if st.sidebar.button(label, key=key, use_container_width=True):
+            st.sidebar.write(f"Натиснута кнопка: {label}")
 
 
 def main():
     st.set_page_config(layout="wide")
     st.title("Many Tabs")
 
-    tab1_button = StyledButton("Tab 1")
-    tab2_button = StyledButton("Tab 2")
-    tab3_button = StyledButton("Tab 3")
+    tabs_and_buttons = [("Вкладка 1", tab1_content),
+                        ("Вкладка 2", tab2_content),
+                        ("Вкладка 3", tab3_content),
+                        ("Перша кнопка", None),
+                        ("Друга кнопка", None),
+                        ("Третя кнопка", None),
+                        ("Четверта кнопка", None)]
 
-    selected_tab_1 = tab1_button.render()
-    if selected_tab_1:
-        tab1_content()
-
-    selected_tab_2 = tab2_button.render()
-    if selected_tab_2:
-        tab2_content()
-
-    selected_tab_3 = tab3_button.render()
-    if selected_tab_3:
-        tab3_content()
+    for item_label, content_function in tabs_and_buttons:
+        if content_function:
+            button = StyledButton(item_label)
+            selected = button.render()
+            if selected:
+                content_function()
+        else:
+            create_buttons([item_label])
 
 
 if __name__ == "__main__":
