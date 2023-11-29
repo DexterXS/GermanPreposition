@@ -7,14 +7,16 @@ from tab3 import tab3_content
 def main():
     st.title("Many Tabs")
 
-    tabs = ["Tab 1", "Tab 2", "Tab 3"]
-    selected_tab = st.sidebar.selectbox("Select Tab", tabs)
-
-    if selected_tab == "Tab 1":
+    selected_tab = st.sidebar.button("Tab 1")
+    if selected_tab:
         tab1_content()
-    elif selected_tab == "Tab 2":
+
+    selected_tab = st.sidebar.button("Tab 2")
+    if selected_tab:
         tab2_content()
-    elif selected_tab == "Tab 3":
+
+    selected_tab = st.sidebar.button("Tab 3")
+    if selected_tab:
         tab3_content()
 
 
