@@ -5,26 +5,22 @@ from tab3 import tab3_content
 
 
 class StyledButton:
-    def __init__(self, label, font_size):
+    def __init__(self, label):
         self.label = label
-        self.font_size = font_size
 
     def render(self):
-        button_clicked = st.sidebar.button(self.label, key=self.label.lower().replace(" ", "_"))
-        if button_clicked:
-            st.sidebar.markdown(f'<button style="font-size: {self.font_size};">{self.label}</button>',
-                                unsafe_allow_html=True)
+        button_clicked = st.sidebar.button(self.label, key=self.label.lower().replace(" ", "_"),
+                                           use_container_width=True)
         return button_clicked
 
 
 def main():
+    st.set_page_config(layout="wide")
     st.title("Many Tabs")
 
-    font_size = "16px"  # Adjust the font size as needed
-
-    tab1_button = StyledButton("Tab 1", font_size)
-    tab2_button = StyledButton("Tab 2", font_size)
-    tab3_button = StyledButton("Tab 3", font_size)
+    tab1_button = StyledButton("Tab 1")
+    tab2_button = StyledButton("Tab 2")
+    tab3_button = StyledButton("Tab 3")
 
     selected_tab_1 = tab1_button.render()
     if selected_tab_1:
