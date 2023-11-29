@@ -5,18 +5,16 @@ from tab3 import tab3_content
 
 
 def main():
-    st.title("many tabs")
+    st.title("Many Tabs")
 
-    tabs = ["tab 1", "tab 2", "tab 3"]
-    selected_tab = st.sidebar.radio("Select tab", tabs)
+    tabs = ["Tab 1", "Tab 2", "Tab 3"]
+    selected_tab = st.sidebar.selectbox("Select Tab", tabs)
 
-    if selected_tab == "tab 1":
+    if selected_tab == "Tab 1":
         tab1_content()
-
-    elif selected_tab == "tab 2":
+    elif selected_tab == "Tab 2":
         tab2_content()
-
-    elif selected_tab == "tab 3":
+    elif selected_tab == "Tab 3":
         tab3_content()
 
 
