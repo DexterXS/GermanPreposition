@@ -4,7 +4,7 @@ import streamlit as st
 def calculator():
     st.title("Компактный калькулятор")
 
-    col1, col2, col3, col4 = st.beta_columns(4)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         num1 = st.button("1")
