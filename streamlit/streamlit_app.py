@@ -1,52 +1,24 @@
 import streamlit as st
+from tab1 import tab1_content
+from tab2 import tab2_content
+from tab3 import tab3_content
 
 
-def calculator():
-    st.title("Компактный калькулятор")
+def main():
+    st.title("many tabs")
 
-    col1, col2, col3, col4 = st.columns(4)
+    tabs = ["tab 1", "tab 2", "tab 3"]
+    selected_tab = st.sidebar.radio("Select tab", tabs)
 
-    with col1:
-        num1 = st.button("1")
-        num4 = st.button("4")
-        num7 = st.button("7")
-        num0 = st.button("0")
+    if selected_tab == "tab 1":
+        tab1_content()
 
-    with col2:
-        num2 = st.button("2")
-        num5 = st.button("5")
-        num8 = st.button("8")
-        dot = st.button(".")
+    elif selected_tab == "tab 2":
+        tab2_content()
 
-    with col3:
-        num3 = st.button("3")
-        num6 = st.button("6")
-        num9 = st.button("9")
-        equals = st.button("=")
-
-    with col4:
-        add_btn = st.button("+")
-        subtract_btn = st.button("-")
-        multiply_btn = st.button("*")
-        divide_btn = st.button("/")
-
-    result = st.empty()
-
-    expression = ""
-    while True:
-        clicked_btn = st.experimental_get_query_params().get("button", [None])[0]
-
-        if clicked_btn is not None:
-            if clicked_btn == "=":
-                try:
-                    result_value = eval(expression)
-                    result.success(f"Result: {result_value}")
-                except:
-                    result.error("Error solve")
-                expression = ""
-            else:
-                expression += clicked_btn
+    elif selected_tab == "tab 3":
+        tab3_content()
 
 
 if __name__ == "__main__":
-    calculator()
+    main()
