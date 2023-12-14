@@ -4,7 +4,7 @@
         "case": "Akkusativ",
         "preposition": "auf"
     },
-    "anmelden": {
+    "(sich) anmelden": {
         "translation": "реєструватися",
         "case": "Akkusativ",
         "preposition": "für"
@@ -14,7 +14,7 @@
         "case": "Akkusativ",
         "preposition": "auf"
     },
-    "ärgern": {
+    "(sich) ärgern": {
         "translation": "сердитися",
         "case": "Akkusativ",
         "preposition": "über"
@@ -34,12 +34,12 @@
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "beschweren": {
+    "(sich) beschweren": {
         "translation": "скаржитися",
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "bewerben": {
+    "(sich) bewerben": {
         "translation": "подавати заявку",
         "case": "Akkusativ",
         "preposition": "um/auf"
@@ -69,37 +69,37 @@
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "einsetzen": {
+    "(sich) einsetzen": {
         "translation": "використовувати",
         "case": "Akkusativ",
         "preposition": "für"
     },
-    "einstellen": {
+    "(sich) einstellen": {
         "translation": "налаштовувати",
         "case": "Akkusativ",
         "preposition": "auf"
     },
-    "engagieren": {
+    "(sich) engagieren": {
         "translation": "залучати",
         "case": "Akkusativ",
         "preposition": "für"
     },
-    "entscheiden": {
+    "(sich) entscheiden": {
         "translation": "вирішувати",
         "case": "Akkusativ",
         "preposition": "für"
     },
-    "entschuldigen": {
+    "(sich) entschuldigen": {
         "translation": "вибачатися",
         "case": "Akkusativ",
         "preposition": "für"
     },
-    "erinnern": {
+    "(sich) erinnern": {
         "translation": "пам'ятати",
         "case": "Akkusativ",
         "preposition": "an"
     },
-    "freuen": {
+    "(sich) freuen": {
         "translation": "радіти",
         "case": "Akkusativ",
         "preposition": "auf/über"
@@ -129,12 +129,12 @@
         "case": "Akkusativ",
         "preposition": "gegen"
     },
-    "informieren": {
+    "(sich) informieren": {
         "translation": "інформувати",
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "interessieren": {
+    "(sich) interessieren": {
         "translation": "цікавити",
         "case": "Akkusativ",
         "preposition": "für"
@@ -144,12 +144,12 @@
         "case": "Akkusativ",
         "preposition": "für"
     },
-    "konzentrieren": {
+    "(sich) konzentrieren": {
         "translation": "концентрувати",
         "case": "Akkusativ",
         "preposition": "auf"
     },
-    "kümmern": {
+    "(sich) kümmern": {
         "translation": "турбувати",
         "case": "Akkusativ",
         "preposition": "um"
@@ -169,17 +169,17 @@
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "streiten": {
+    "(sich) streiten": {
         "translation": "сваритися",
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "unterhalten": {
+    "(sich) unterhalten": {
         "translation": "розважати",
         "case": "Akkusativ",
         "preposition": "über"
     },
-    "verlassen": {
+    "(sich) verlassen": {
         "translation": "залишати",
         "case": "Akkusativ",
         "preposition": "auf"
@@ -194,7 +194,7 @@
         "case": "Akkusativ",
         "preposition": "auf"
     },
-    "vorbereiten": {
+    "(sich) vorbereiten": {
         "translation": "підготовляти",
         "case": "Akkusativ",
         "preposition": "auf"

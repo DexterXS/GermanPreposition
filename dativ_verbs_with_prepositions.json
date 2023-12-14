@@ -14,7 +14,7 @@
             "case": "Dativ",
             "preposition": "von"
         },
-        "beschäftigen": {
+        "(sich) beschäftigen": {
             "translation": "займатися",
             "case": "Dativ",
             "preposition": "mit"
@@ -24,7 +24,7 @@
             "case": "Dativ",
             "preposition": "aus"
         },
-        "bewerben": {
+        "(sich) bewerben": {
             "translation": "подавати заявку",
             "case": "Dativ",
             "preposition": "bei"
@@ -94,25 +94,30 @@
             "case": "Dativ",
             "preposition": "von"
         },
-        "treffen": {
+        "(sich) treffen": {
             "translation": "зустрічати",
             "case": "Dativ",
             "preposition": "mit"
+        },
+        "(sich) trennen": {
+            "translation": "окремо",
+            "case": "Dativ",
+            "preposition": "von"
         },
         "umgehen": {
             "translation": "обходити",
             "case": "Dativ",
             "preposition": "mit"
         },
-        "unterhalten": {
+        "(sich) unterhalten": {
             "translation": "розважати",
             "case": "Dativ",
             "preposition": "mit"
         },
-        "verabreden": {
+        "(sich) verabreden": {
             "translation": "домовлятися",
             "case": "Dativ",
-            "preposition": "mit"
+            "preposition": "mit/zu"
         },
         "verbinden": {
             "translation": "поєднувати",
