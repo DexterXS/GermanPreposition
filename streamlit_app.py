@@ -41,7 +41,7 @@ if 'current_verb' in st.session_state:
     # st.write(f"Відмінок: {info['case']} - Прийменник: {info['preposition']}")
 
     user_case = st.selectbox("Виберіть відмінок", ["Dativ", "Akkusativ"])
-    user_preposition = st.text_input("Введіть прийменник")
+    user_preposition = st.text_input("Введіть прийменник (наприклад: über, mit, um/auf і т.д.)")
 
     if st.button("Перевірити відповідь"):
         if user_case == info['case'] and user_preposition.lower() == info['preposition']:
