@@ -24,17 +24,26 @@ st.title("Вивчення німецьких дієслів з прийменн
 # Вибір категорії дієслів
 category = st.radio("Виберіть категорію:", ['Akkusativ', 'Dativ'])
 
-# Завантаження даних відповідно до вибору користувача
 if category == 'Akkusativ':
     verbs_data = load_data(akkusativ_file_path)
 elif category == 'Dativ':
     verbs_data = load_data(dativ_file_path)
 
-if st.button("Отримати дієслово"):
-    verb, verb_info = get_random_verb(verbs_data)
+if 'current_verb' not in st.session_state or st.button("Отримати нове дієслово"):
+    verb, info = get_random_verb(verbs_data)
     st.session_state['current_verb'] = verb
-    st.session_state['current_info'] = verb_info
+    st.session_state['current_info'] = info
 
 if 'current_verb' in st.session_state:
-    st.write(f"Дієслово: {st.session_state['current_verb']} ({st.session_state['current_info']['case']} {st.session_state['current_info']['preposition']})")
-    st.write(f"Переклад: {st.session_state['current_info']['translation']}")
+    verb = st.session_state['current_verb']
+    info = st.session_state['current_info']
+    st.write(f"Дієслово: {verb} - {info['translation']}")
+
+    user_case = st.selectbox("Виберіть відмінок", ["Dativ", "Akkusativ"])
+    user_preposition = st.text_input("Введіть прийменник")
+
+    if st.button("Перевірити відповідь"):
+        if user_case == info['case'] and user_preposition == info['preposition']:
+            st.success("Вірно!")
+        else:
+            st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['preposition']})")
