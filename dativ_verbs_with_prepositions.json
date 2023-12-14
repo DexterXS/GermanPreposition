@@ -1,5 +1,4 @@
 {
-    "Verben mit Präposition + Dativ": {
         "abhängen": {
             "translation": "залежати",
             "case": "Dativ",
@@ -130,5 +129,4 @@
             "case": "Dativ",
             "preposition": "mit"
         }
-    }
 }
