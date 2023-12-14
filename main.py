@@ -1,13 +1,15 @@
-import telebot;
+from typing import Union
 
-bot = telebot.TeleBot('6550558622:AAH7E6pCtR8J4SjWxh2mU2Pu07_fdDZ_-YI');
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-@bot.message_handler(content_types=['text', 'document', 'audio'])
-def get_text_messages(message):
-    if message.text == "Привет":
-        bot.send_message(message.from_user.id, "Привет, чем я могу тебе помочь?")
-    elif message.text == "/help":
-        bot.send_message(message.from_user.id, "Напиши привет")
-    else:
-        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}

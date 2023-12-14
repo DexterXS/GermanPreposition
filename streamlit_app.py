@@ -1,89 +1,39 @@
 import streamlit as st
-import spacy
+import random
 
+# Розширений словник з дієсловами, перекладами, відмінками та прийменниками
+verbs_info = {
+    "achten": {"translation": "звертати увагу", "case": "Akkusativ", "preposition": "auf"},
+    "ankommen": {"translation": "залежати", "case": "Dativ", "preposition": "auf"},
+    "antworten": {"translation": "відповідати", "case": "Dativ", "preposition": "auf"},
+    "warten": {"translation": "чекати", "case": "Akkusativ", "preposition": "auf"},
+    "sich freuen": {"translation": "радіти", "case": "Akkusativ", "preposition": "auf"}
+    # Додайте більше дієслів за бажанням
+}
 
-def annotate_german_words(text, nlp):
-    doc = nlp(text)
-    annotated_text = ""
+def get_random_verb():
+    """Функція для вибору випадкового дієслова."""
+    verb, info = random.choice(list(verbs_info.items()))
+    return verb, info
 
-    for token in doc:
-        annotations = []
+# Створення веб-додатку з використанням Streamlit
+st.title("Вивчення німецьких дієслів з прийменниками")
 
-        # Часть речи
-        annotations.append(f"POS: {token.pos_}")
+if st.button("Отримати дієслово"):
+    verb, info = get_random_verb()
+    st.session_state['current_verb'] = verb
+    st.session_state['current_info'] = info
+    st.write(f"Дієслово: {verb} - {info['translation']}")
 
-        if token.pos_ == "VERB":
-            color = "blue"
-            font_weight = "normal"
-        elif token.pos_ == "NOUN":
-            color = "green"
-            font_weight = "normal"
-        elif token.pos_ == "ADP":
-            color = "red"
-            font_weight = "normal"
-        elif token.pos_ == "PROPN":
-            color = "purple"
-            font_weight = "normal"
-        elif token.pos_ == "DET":
-            color = "orange"
-            font_weight = "normal"
-        elif token.pos_ == "PRON":
-            color = "brown"
-            font_weight = "normal"
-        elif token.pos_ == "AUX":
-            color = "teal"
-            font_weight = "normal"
+if 'current_verb' in st.session_state:
+    verb = st.session_state['current_verb']
+    info = st.session_state['current_info']
+
+    user_case = st.selectbox("Виберіть відмінок", ["Dativ", "Akkusativ"])
+    user_preposition = st.text_input("Введіть прийменник")
+
+    if st.button("Перевірити відповідь"):
+        if user_case == info['case'] and user_preposition == info['preposition']:
+            st.success("Вірно!")
         else:
-            color = "white"
-            font_weight = "normal"
-
-        if token.lang_ == "de":
-            annotated_text += f'<span style="color:{color}; font-weight:{font_weight};" title="{", ".join(annotations)}">{token.text}</span> '
-        else:
-            annotated_text += token.text + " "
-
-    return annotated_text.strip()
-
-
-def show_colored_legend():
-    legend = [
-        ("<span style='color: blue;'>VERB</span>: Глагол"),
-        ("<span style='color: green;'>NOUN</span>: Существительное"),
-        ("<span style='color: red;'>ADP</span>: Предлог"),
-        ("<span style='color: purple;'>PROPN</span>: Имя собственное"),
-        ("<span style='color: orange;'>DET</span>: Артикль или детерминатив"),
-        ("<span style='color: brown;'>PRON</span>: Местоимение"),
-        ("<span style='color: teal;'>AUX</span>: Вспомогательный глагол")
-    ]
-
-    st.markdown("## Легенда с цветами частей речи")
-    for item in legend:
-        st.markdown(item, unsafe_allow_html=True)
-
-
-def load_spacy_model():
-    return spacy.load("de_core_news_sm")
-
-
-def main():
-    st.title("Немецкий текст")
-
-    nlp = load_spacy_model()
-
-    input_text = st.text_area("Введите текст:", value="", key="input_text")
-
-    if st.button("Подсветить немецкие слова"):
-        sentences = input_text.split(". ")
-        highlighted_text = ""
-
-        for sentence in sentences:
-            if sentence.strip():  # Пропустим пустые строки
-                highlighted_sentence = annotate_german_words(sentence, nlp)
-                highlighted_text += f"{highlighted_sentence.strip()}\n"
-
-        st.markdown(f"Подсвеченный текст:\n{highlighted_text}", unsafe_allow_html=True)
-        show_colored_legend()
-
-
-if __name__ == "__main__":
-    main()
+            st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['preposition']})")
