@@ -44,7 +44,7 @@ if 'current_verb' in st.session_state:
     user_preposition = st.text_input("Введіть прийменник")
 
     if st.button("Перевірити відповідь"):
-        if user_case == info['case'] and user_preposition == info['preposition']:
+        if user_case == info['case'] and user_preposition.lower() == info['preposition']:
             st.success("Вірно!")
         else:
             st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['preposition']})")
