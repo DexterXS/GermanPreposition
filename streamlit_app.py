@@ -38,7 +38,7 @@ if 'current_verb' in st.session_state:
     verb = st.session_state['current_verb']
     info = st.session_state['current_info']
     st.write(f"Дієслово: {verb} - {info['translation']}")
-    st.write(f"Відмінок: {info['case']} - Прийменник: {info['preposition']}")
+    # st.write(f"Відмінок: {info['case']} - Прийменник: {info['preposition']}")
 
     user_case = st.selectbox("Виберіть відмінок", ["Dativ", "Akkusativ"])
     user_preposition = st.text_input("Введіть прийменник")
