@@ -1,0 +1,134 @@
+{
+    "Verben mit Präposition + Dativ": {
+        "abhängen": {
+            "translation": "залежати",
+            "case": "Dativ",
+            "preposition": "von"
+        },
+        "aufhören": {
+            "translation": "припинити",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "ausgehen": {
+            "translation": "виходити",
+            "case": "Dativ",
+            "preposition": "von"
+        },
+        "beschäftigen": {
+            "translation": "займатися",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "bestehen": {
+            "translation": "складатися",
+            "case": "Dativ",
+            "preposition": "aus"
+        },
+        "bewerben": {
+            "translation": "подавати заявку",
+            "case": "Dativ",
+            "preposition": "bei"
+        },
+        "chaten": {
+            "translation": "чатувати",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "einladen": {
+            "translation": "запрошувати",
+            "case": "Dativ",
+            "preposition": "zu"
+        },
+        "erzählen": {
+            "translation": "розповідати",
+            "case": "Dativ",
+            "preposition": "von"
+        },
+        "fragen": {
+            "translation": "питати",
+            "case": "Dativ",
+            "preposition": "nach"
+        },
+        "gehören": {
+            "translation": "належати",
+            "case": "Dativ",
+            "preposition": "zu"
+        },
+        "gratulieren": {
+            "translation": "вітати",
+            "case": "Dativ",
+            "preposition": "zu"
+        },
+        "leiden": {
+            "translation": "страждати",
+            "case": "Dativ",
+            "preposition": "an"
+        },
+        "passen": {
+            "translation": "підходити",
+            "case": "Dativ",
+            "preposition": "zu"
+        },
+        "schützen": {
+            "translation": "захищати",
+            "case": "Dativ",
+            "preposition": "vor"
+        },
+        "sprechen": {
+            "translation": "говорити",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "teilnehmen": {
+            "translation": "брати участь",
+            "case": "Dativ",
+            "preposition": "an"
+        },
+        "telefonieren": {
+            "translation": "телефонувати",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "träumen": {
+            "translation": "мріяти",
+            "case": "Dativ",
+            "preposition": "von"
+        },
+        "treffen": {
+            "translation": "зустрічати",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "umgehen": {
+            "translation": "обходити",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "unterhalten": {
+            "translation": "розважати",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "verabreden": {
+            "translation": "домовлятися",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "verbinden": {
+            "translation": "поєднувати",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "verbringen": {
+            "translation": "проводити",
+            "case": "Dativ",
+            "preposition": "mit"
+        },
+        "vergleichen": {
+            "translation": "порівнювати",
+            "case": "Dativ",
+            "preposition": "mit"
+        }
+    }
+}

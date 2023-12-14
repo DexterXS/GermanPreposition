@@ -1,38 +1,40 @@
 import streamlit as st
+import json
 import random
 
-# Розширений словник з дієсловами, перекладами, відмінками та прийменниками
-verbs_info = {
-    "achten": {"translation": "звертати увагу", "case": "Akkusativ", "preposition": "auf"},
-    "ankommen": {"translation": "залежати", "case": "Dativ", "preposition": "auf"},
-    "antworten": {"translation": "відповідати", "case": "Dativ", "preposition": "auf"},
-    "warten": {"translation": "чекати", "case": "Akkusativ", "preposition": "auf"},
-    "sich freuen": {"translation": "радіти", "case": "Akkusativ", "preposition": "auf"}
-    # Додайте більше дієслів за бажанням
-}
+# Завантаження даних з JSON файлу
+def load_data(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
 
-def get_random_verb():
-    verb, info = random.choice(list(verbs_info.items()))
-    return verb, info
+# Отримання випадкового дієслова зі списку
+def get_random_verb(verbs_dict):
+    verbs = list(verbs_dict.keys())
+    verb = random.choice(verbs)
+    return verb, verbs_dict[verb]
+
+# Шляхи до файлів JSON
+akkusativ_file_path = 'akkusativ_verbs_full_translations.json'
+dativ_file_path = 'dativ_verbs_with_prepositions.json'
 
 # Створення веб-додатку з використанням Streamlit
 st.title("Вивчення німецьких дієслів з прийменниками")
 
-if 'current_verb' not in st.session_state or st.button("Отримати нове дієслово"):
-    verb, info = get_random_verb()
+# Вибір категорії дієслів
+category = st.radio("Виберіть категорію:", ['Akkusativ', 'Dativ'])
+
+# Завантаження даних відповідно до вибору користувача
+if category == 'Akkusativ':
+    verbs_data = load_data(akkusativ_file_path)
+elif category == 'Dativ':
+    verbs_data = load_data(dativ_file_path)
+
+if st.button("Отримати дієслово"):
+    verb, verb_info = get_random_verb(verbs_data)
     st.session_state['current_verb'] = verb
-    st.session_state['current_info'] = info
+    st.session_state['current_info'] = verb_info
 
-verb = st.session_state['current_verb']
-info = st.session_state['current_info']
-
-st.write(f"Дієслово: {verb} - {info['translation']}")
-
-user_case = st.selectbox("Виберіть відмінок", ["Dativ", "Akkusativ"])
-user_preposition = st.text_input("Введіть прийменник")
-
-if st.button("Перевірити відповідь"):
-    if user_case == info['case'] and user_preposition == info['preposition']:
-        st.success("Вірно!")
-    else:
-        st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['preposition']})")
+if 'current_verb' in st.session_state:
+    st.write(f"Дієслово: {st.session_state['current_verb']} ({st.session_state['current_info']['case']} {st.session_state['current_info']['preposition']})")
+    st.write(f"Переклад: {st.session_state['current_info']['translation']}")
