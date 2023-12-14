@@ -20,7 +20,7 @@ def get_random_verb(verbs_dict):
 
 # Шляхи до файлів JSON
 akkusativ_file_path = 'akkusativ_verbs_full_translations.json'
-dativ_file_path = 'dativ_verbs_with_prepositions.json'
+dativ_file_path = 'dativ_verbs_with_praepositions.json'
 
 # Loading data from files
 verbs_data = load_data(akkusativ_file_path, dativ_file_path)
@@ -41,10 +41,10 @@ if 'current_verb' in st.session_state:
     # st.write(f"Відмінок: {info['case']} - Прийменник: {info['preposition']}")
 
     user_case = st.radio("Виберіть відмінок", ["Dativ", "Akkusativ"])
-    user_preposition = st.text_input("Введіть прийменник (наприклад: über, mit, um/auf і т.д.):")
+    user_praeposition = st.text_input("Введіть прийменник (наприклад: über, mit, um/auf і т.д.):")
 
     if st.button("Перевірити відповідь"):
-        if user_case == info['case'] and user_preposition.lower() == info['preposition']:
+        if user_case == info['case'] and user_praeposition.lower() == info['praeposition']:
             st.success("Вірно!")
         else:
-            st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['preposition']})")
+            st.error(f"Неправильно. Правильна відповідь: {verb} ({info['case']} {info['praeposition']})")

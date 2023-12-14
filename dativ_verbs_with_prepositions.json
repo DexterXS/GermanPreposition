@@ -2,136 +2,136 @@
         "abhängen": {
             "translation": "залежати",
             "case": "Dativ",
-            "preposition": "von"
+            "praeposition": "von"
         },
         "aufhören": {
             "translation": "припинити",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "ausgehen": {
             "translation": "виходити",
             "case": "Dativ",
-            "preposition": "von"
+            "praeposition": "von"
         },
         "(sich) beschäftigen": {
             "translation": "займатися",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "bestehen": {
             "translation": "складатися",
             "case": "Dativ",
-            "preposition": "aus"
+            "praeposition": "aus"
         },
         "(sich) bewerben": {
             "translation": "подавати заявку",
             "case": "Dativ",
-            "preposition": "bei"
+            "praeposition": "bei"
         },
         "chaten": {
             "translation": "чатувати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "einladen": {
             "translation": "запрошувати",
             "case": "Dativ",
-            "preposition": "zu"
+            "praeposition": "zu"
         },
         "erzählen": {
             "translation": "розповідати",
             "case": "Dativ",
-            "preposition": "von"
+            "praeposition": "von"
         },
         "fragen": {
             "translation": "питати",
             "case": "Dativ",
-            "preposition": "nach"
+            "praeposition": "nach"
         },
         "gehören": {
             "translation": "належати",
             "case": "Dativ",
-            "preposition": "zu"
+            "praeposition": "zu"
         },
         "gratulieren": {
             "translation": "вітати",
             "case": "Dativ",
-            "preposition": "zu"
+            "praeposition": "zu"
         },
         "leiden": {
             "translation": "страждати",
             "case": "Dativ",
-            "preposition": "an"
+            "praeposition": "an"
         },
         "passen": {
             "translation": "підходити",
             "case": "Dativ",
-            "preposition": "zu"
+            "praeposition": "zu"
         },
         "schützen": {
             "translation": "захищати",
             "case": "Dativ",
-            "preposition": "vor"
+            "praeposition": "vor"
         },
         "sprechen": {
             "translation": "говорити",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "teilnehmen": {
             "translation": "брати участь",
             "case": "Dativ",
-            "preposition": "an"
+            "praeposition": "an"
         },
         "telefonieren": {
             "translation": "телефонувати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "träumen": {
             "translation": "мріяти",
             "case": "Dativ",
-            "preposition": "von"
+            "praeposition": "von"
         },
         "(sich) treffen": {
             "translation": "зустрічати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "(sich) trennen": {
             "translation": "розлучатися",
             "case": "Dativ",
-            "preposition": "von"
+            "praeposition": "von"
         },
         "umgehen": {
             "translation": "обходити",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "(sich) unterhalten": {
             "translation": "розважати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "(sich) verabreden": {
             "translation": "домовлятися",
             "case": "Dativ",
-            "preposition": "mit/zu"
+            "praeposition": "mit/zu"
         },
         "verbinden": {
             "translation": "поєднувати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "verbringen": {
             "translation": "проводити",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         },
         "vergleichen": {
             "translation": "порівнювати",
             "case": "Dativ",
-            "preposition": "mit"
+            "praeposition": "mit"
         }
 }
